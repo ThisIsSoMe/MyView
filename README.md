@@ -1,6 +1,3 @@
-# MyView
-A preview repo
-
 # 评估
 输入文件格式：
 1. 文件以.sql结尾
@@ -74,24 +71,24 @@ A preview repo
 
     "column_names":[[table_id, column_name]...]
     "column_types":["text/time/number/.." ...]
-    "db_id":db_id
-    "foreign_keys":[[foreign_key, prime_key]...]
-    "primary_keys":[prime_key ...]
-    "table_names":[table_name ...]
-    "table_ids":[table_id](仅NL2SQL)
+    "db_id":db_id (NL2SQL中来自id)
+    "foreign_keys":[[col_id, col_id]...]
+    "primary_keys":[prime_key, ...]
+    "table_names":[table_name ...] (NL2SQL中来自name)
 
 ## table content
 
-    "db_id":db_id
+    "db_id":db_id (NL2SQL中来自table_id)
     "tables": {
         table_name:{
             "cell":[row1, row2, ...]
+            "header":[col1, col2, ...]
+            "table_name":table_name (NL2SQL中来自name)
+            "types":["text/time/number/.." ...]
         }
-        "header":[col1, col2, ...]
-        "table_name":table_name
-        "type":["text/time/number/.." ...]
-        "table_ids":[table_id](仅NL2SQL)
     }
+
+    CSpider: icfp_1 chinook_1 flight_4 world_1 voter_1 small_bank_1 twitter_1 company_1 epinions_1等database读取content数据出错，部分无content数据
 
 ## train/dev
 
@@ -100,9 +97,6 @@ A preview repo
     "question":question
     "sql":sql_json
     "query":sql(select ? from ?)
-    "question_toks":[tok1, ...]
-    "query_toks":[tok1, ..] (C仅Spider)
-    "query_toks_novalue":[tok1, ..] (仅CSpider)
 
 ## test:
 
@@ -111,8 +105,5 @@ A preview repo
     "question":question
     "sql":''
     "query":''
-    "question_toks":[tok1, ...] (仅CSpider)
-    "query_toks":[tok1, ..] (仅CSpider)
-    "query_toks_novalue":[tok1, ..] (仅CSpider)
 
 
