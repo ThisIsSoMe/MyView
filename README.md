@@ -129,7 +129,7 @@ python3.7（python3应该都没问题）
 其中：
 
     score["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy}
-    score_novalue["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy} (NL2SQL数据集此项为None)
+    score_novalue["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy}
     
 ## 输出
     with value:
