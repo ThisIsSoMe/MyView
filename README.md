@@ -126,7 +126,7 @@ python3.7（python3应该都没问题）
 
     from text2sql_evaluation import evaluate
     score, score_novalue = evaluate('table.json', 'gold.sql', 'pred.sql',mode='exact',dataset='DuSQL')
-    其中：
+其中：
 
     score["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy}
     score_novalue["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy} (NL2SQL数据集此项为None)
