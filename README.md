@@ -125,7 +125,7 @@ python3.7（python3应该都没问题）
 ## 接口
 
     from text2sql_evaluation import evaluate
-    score, score_novalue = evaluate('table.json', 'gold.sql', 'pred.sql',mode='exact',dataset='DuSQL')
+    score, score_novalue = evaluate('table.json', 'gold.sql', 'pred.sql',dataset='DuSQL')
 其中：
 
     score["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy}
