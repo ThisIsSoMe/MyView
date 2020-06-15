@@ -1,7 +1,10 @@
+# 环境
+python3.7（python3应该都没问题）
+
 # 评估
 输入文件格式：
 1. 文件以.sql结尾
-2. 文件每行的格式："qid\tsql_query\tdb_id",其中db_id是可选字段
+2. 文件每行的格式："qid\tsql_query\tdb_id",其中predcit文件db_id是可选字段，gold文件db_id是必选字段
 3. 评估指标：exact matching score
 
 # 数据集格式
@@ -33,13 +36,13 @@
     agg_sql_dict = {0:"", 1:"AVG", 2:"MAX", 3:"MIN", 4:"COUNT", 5:"SUM"}
     conn_sql_dict = {0:"", 1:"and", 2:"or"}
 
-### DuSQL & CSpider(目前以DuSQL为准，CSpider有出入)
+### DuSQL & CSpider
 
     val: number(float)/string(str)/sql(dict)
-    col_unit: (agg_id, col_id)
+    col_unit: (agg_id, col_id, isDistinct(bool))
     val_unit: (unit_op, col_unit1, col_unit2)
     table_unit: (table_type, col_unit/sql)
-    cond_unit: (not_op, cond_op, val_unit, val1, val2)
+    cond_unit: (agg_id, cond_op, val_unit, val1, val2)
     condition: [cond_unit1, 'and'/'or', cond_unit2, ...]
     sql {
        'select': [(agg_id, val_unit), (agg_id, val_unit), ...]
@@ -70,11 +73,14 @@
 ## table schema
 
     "column_names":[[table_id, column_name]...]
+    "table_names":[table_name ...] (NL2SQL中来自name)
+    "column_names_original":[[table_id, column_name_original]...]
+    "table_names_original":[table_name_original ...] (NL2SQL中来自name)
     "column_types":["text/time/number/.." ...]
     "db_id":db_id (NL2SQL中来自id)
     "foreign_keys":[[col_id, col_id]...]
     "primary_keys":[prime_key, ...]
-    "table_names":[table_name ...] (NL2SQL中来自name)
+    
 
 ## table content
 
@@ -96,7 +102,7 @@
     "db_id":db_id
     "question":question
     "sql":sql_json
-    "query":sql(select ? from ?)
+    "query":sql(select ? from ? where ?)
 
 ## test:
 
@@ -106,4 +112,29 @@
     "sql":''
     "query":''
 
+# 使用
 
+## 命令行
+
+    python text2sql_eval.py \
+        --g 'test1_gold.sql' \ # gold文件
+        --p 'test_pred.sql' \ # predict文件
+        --t 'data/DuSQL/db_schema.json' \ # schema文件
+        --d 'DuSQL' \ # 选择dataset（DuSQL、NL2SQL、CSPider可选）
+
+## 接口
+
+    from text2sql_evaluation import evaluate
+    score, score_novalue = evaluate('table.json', 'gold.sql', 'pred.sql',mode='exact',dataset='DuSQL')
+    其中：
+
+    score["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy}
+    score_novalue["all"] = {"exact": exact num, "count": test examples num, "acc": accuracy} (NL2SQL数据集此项为None)
+    
+## 输出
+    with value:
+    {"exact": exact num, "count": test examples num, "acc": accuracy}
+    without value:
+    {"exact": exact num, "count": test examples num, "acc": accuracy}
+
+    
