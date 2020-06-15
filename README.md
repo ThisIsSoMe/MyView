@@ -117,8 +117,8 @@ python3.7（python3应该都没问题）
 ## 命令行
 
     python text2sql_eval.py \
-        --g 'test1_gold.sql' \ # gold文件
-        --p 'test_pred.sql' \ # predict文件
+        --g 'data/DuSQL/test_gold.sql' \ # gold文件
+        --p 'test_DuSQL.sql' \ # predict文件
         --t 'data/DuSQL/db_schema.json' \ # schema文件
         --d 'DuSQL' \ # 选择dataset（DuSQL、NL2SQL、CSPider可选）
 
