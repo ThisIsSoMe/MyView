@@ -70,7 +70,7 @@ python3.7（python3应该都没问题）
     SQL_OPS = ('intersect', 'union', 'except')
     ORDER_OPS = ('desc', 'asc')
 
-## table schema
+## db schema
 
     "column_names":[[table_id, column_name]...]
     "table_names":[table_name ...] (NL2SQL中来自name)
@@ -82,7 +82,7 @@ python3.7（python3应该都没问题）
     "primary_keys":[prime_key, ...]
     
 
-## table content
+## db content
 
     "db_id":db_id (NL2SQL中来自table_id)
     "tables": {
