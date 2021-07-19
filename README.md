@@ -122,8 +122,9 @@ python3.7（python3应该都没问题）
             "header":[col1, col2, ...]
             "table_name":table_name
             "types":["text/time/number/.." ...]
-        }
-    }
+                    }
+               }
+               
     }
 
 ## train/dev
