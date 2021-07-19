@@ -82,6 +82,7 @@ python3.7（python3应该都没问题）
     "foreign_keys":[[col_id, col_id]...]
     "primary_keys":[prime_key, ...]
     }
+    
    
 ## spider db schema
     
@@ -110,6 +111,20 @@ python3.7（python3应该都没问题）
     }
 
     CSpider: icfp_1 chinook_1 flight_4 world_1 voter_1 small_bank_1 twitter_1 company_1 epinions_1等database读取content数据出错，部分无content数据
+
+## spider db content
+
+{
+    "db_id":db_id (NL2SQL中来自table_id)
+    "tables": {
+        table_name:{
+            "cell":[row1, row2, ...]
+            "header":[col1, col2, ...]
+            "table_name":table_name
+            "types":["text/time/number/.." ...]
+        }
+    }
+}
 
 ## train/dev
 
