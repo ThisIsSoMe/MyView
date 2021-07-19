@@ -114,7 +114,7 @@ python3.7（python3应该都没问题）
 
 ## spider db content
 
-{
+    {
     "db_id":db_id (NL2SQL中来自table_id)
     "tables": {
         table_name:{
@@ -124,7 +124,7 @@ python3.7（python3应该都没问题）
             "types":["text/time/number/.." ...]
         }
     }
-}
+    }
 
 ## train/dev
 
