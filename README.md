@@ -71,7 +71,8 @@ python3.7（python3应该都没问题）
     ORDER_OPS = ('desc', 'asc')
 
 ## db schema
-
+    
+    {
     "column_names":[[table_id, column_name]...]
     "table_names":[table_name ...] (NL2SQL中来自name)
     "column_names_original":[[table_id, column_name_original]...]
@@ -80,6 +81,20 @@ python3.7（python3应该都没问题）
     "db_id":db_id (NL2SQL中来自id)
     "foreign_keys":[[col_id, col_id]...]
     "primary_keys":[prime_key, ...]
+    }
+   
+## spider db schema
+    
+    {
+    "column_names":[[table_id, column_name]...]
+    "table_names":[table_name ...]
+    "column_names_original":[[table_id, column_name_original]...]
+    "table_names_original":[table_name_original ...]
+    "column_types":["text/time/number/.." ...]
+    "db_id":db_id
+    "foreign_keys":[[col_id, col_id]...]
+    "primary_keys":[prime_key, ...]
+    }
     
 
 ## db content
